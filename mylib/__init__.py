@@ -18,6 +18,7 @@ del hard_dependencies, dependency, missing_dependencies
 # let init-time option registration happen
 from mylib.alib import *
 
+
 # module level doc-string
 __doc__ = """
 myli: a powerful data analysis and manipulation library for Python

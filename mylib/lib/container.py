@@ -3,11 +3,12 @@ Created on Nov 10, 2018
 
 @author: Dusten Kenward
 '''
-from mylib.alib import *
+import mylib.lib.container_template
+import mylib.io
 
-class AContainer():
+class Container(container_template):
     '''
-    A Container to hold multiple ASubContainers
+    A Container to hold multiple SubContainers
     
     >>> cont = AContainer(data)
     >>> cont.frames()
@@ -21,8 +22,7 @@ class AContainer():
         ''' Creates a new container 
         :param data: data to be parsed
         '''
-        frames = AParser.parse(data)
+        frames = io.read_data()(data)
         pass
-    
     
     
