@@ -3,10 +3,10 @@ Created on Nov 10, 2018
 
 @author: Dusten Kenward
 '''
-import mylib.lib.container_template
+import mylib.lib
 import mylib.io
 
-class Container(container_template):
+class MyDataFrame(ndframe):
     '''
     A Container to hold multiple SubContainers
     
