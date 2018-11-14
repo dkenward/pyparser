@@ -1,3 +1,10 @@
+'''
+Create a function to translate dtypes from multiple sources into a known np.dtype,pd.dtype or custom mylib.dtype
+
+
+Create custom dtypes
+
+'''
 
 def mylib_dtype(dtype):
     '''

@@ -1,1 +1,0 @@
-from mylib.lib import *

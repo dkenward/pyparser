@@ -1,3 +1,5 @@
+from mylib.io.parsers import *
+
 class Interval():
     ''' 
     File with start and stop times of an event/series of events.
@@ -7,10 +9,15 @@ class Interval():
         '''
         JSON:
         {
-            Intervals : {
-                Interval : {
+            
+            Intervals : [
+                {
+                    ID:int [number in sequence],
+                    Name: String, 
                     Start:Datetime,
                     Stop:Datetime
-                }
-            }
+                }, ...
+            
         }
+        '''
+        
