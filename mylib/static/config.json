@@ -1,0 +1,17 @@
+{
+    "Platform": {
+        "datastore":"c:\\data",
+        "username":"default",
+        "dbname":"name",
+        "dbserver": "192.168.1.1"
+    },
+    "User": {
+        "viewstyle":"default",
+        "usegit":true,
+        "gitname":"name",
+        "gitrepo":"www.repo.com/repo",
+        "userdir":"/home/user/",
+        "localrepo":"/home/user/repo/",
+        "sharelocal":false
+    }
+}
