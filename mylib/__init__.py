@@ -16,9 +16,9 @@ if missing_dependencies:
 del hard_dependencies, dependency, missing_dependencies
 
 # let init-time option registration happen
-from mylib.core.lib.api import *
-from mylib.core.io.api import *
-from mylib.mylibviz.api import *
+from mylib.core.api import *
+from mylib.io.api import *
+from mylib.viz.api import *
 
 
 # module level doc-string

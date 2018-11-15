@@ -4,6 +4,7 @@ Created on Nov 10, 2018
 @author: Dusten Kenward
 '''
 from mylib.core.generic import Container_Template
+import mylib
 
 
 class MyDataFrame(Container_Template):
@@ -22,7 +23,8 @@ class MyDataFrame(Container_Template):
         ''' Creates a new container 
         :param data: data to be parsed
         '''
-        frames = io.read_data()(data)
+        frames = mylib.read_mydata(data)
         pass
+    
     
     

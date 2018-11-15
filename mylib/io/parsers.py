@@ -10,3 +10,9 @@ class AParser():
     def parse(self,data):
         df = pd.DataFrame(data)
         return df
+    
+def read_mydata(data):
+    return data
+
+def read_table(table):
+    return table
