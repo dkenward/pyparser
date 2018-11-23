@@ -1,0 +1,7 @@
+v0.0.1 November 2018
+--------------------
+
+This is the first step toward inital major release v0.1.0. Core structure is being worked out and functions built.
+
+File parsing
+~~~~~~~~~~~~
