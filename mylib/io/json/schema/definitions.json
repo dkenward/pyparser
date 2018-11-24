@@ -1,28 +1,54 @@
-
 {
     "definitions": {
+        "$schema": "http://json-schema.org/schema#",
         "title": "Definitions for linked objects",
         "master_object": {
             "title":"master_object",
             "type":"object",
             
             "properties": {
-                "_id": {
-                "type":"number"
-                },
+                "_id": {"type":"integer"},
                 "functions":
                     {"process_function":{"type":"string"},
                      "special_function":{"type":"string"}},
-                "date": {
-                    "type": "string",
-                    "format":"date-time"
-                }
+                "date": { "type": "string",
+                          "format":"date-time"
+                        }
+
                 
                 
                 
 
             }
+        },
+        "data": {
+            "title":"data",
+            "type":"object",
+            "properties": {
+                "start": {"type":"string",
+                          "format":"date-time"},
+                "stop": {"type":"string",
+                         "format": "date-time"},
+                "frames": {"type":"array", 
+                           "items":{"$ref":"definitions/frame"}}
+            }
+        },
+        "frame": {
+            "title": "frame",
+            "type":"object",
+            "properties": {
+                "source_id":{"type":"integer"},
+                "start": {"type":"string", "format":"date-time"},
+                "data":{
+                    "type":"array",
+                    "items":{
+                        "type":"number"
+                    }
+                }
+
+            }
         }
+
     }
 
 }
