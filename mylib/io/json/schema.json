@@ -47,7 +47,18 @@
                 }
 
             }
+        },
+        "datapoint": {
+            "title":"datapoint",
+            "type":"object",
+            "properties": {
+                "source_id":{"type":"integer"},
+                "date-time":{"type":"string","format":"date-time"},
+                "trigger":{"type":"object"}
+                "trigger_func:"
+            }
         }
+
 
     }
 
