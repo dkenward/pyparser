@@ -5,7 +5,7 @@ Classes and methods necessary to input and output data from a MongoDB database.
 from pymongo import MongoClient
 
 
-class mydb():
+class mongo_manager():
     '''
     Class to handle database access and loading/unloading of data
     
@@ -54,10 +54,9 @@ class mydb():
         
         
          """
-        # make Mongo connection with/out authentication
+        # make Mongo connection with or without authentication
         if username and password:
-            mongo_uri = 'mongodb://%s:%s@%s/%s'
-            (username, password, host, db_name)
+            mongo_uri = 'mongodb://{username}:{password}@{host}/{db_name}'.format(username=username, password=password, host=host, db_name=db_name)
             conn = MongoClient(mongo_uri)
         else:
             conn = MongoClient(host, port)
