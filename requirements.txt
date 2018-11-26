@@ -3,6 +3,7 @@ numpy
 pandas
 pillow
 opencv-contrib-python #has more modules
+python-bsonjs 
 
 #for testing
 nose
@@ -10,6 +11,3 @@ unittest
 
 
 
-
-
-#python-bsonjs # This would be nice but requires a specific c++ compiler, so maybe not

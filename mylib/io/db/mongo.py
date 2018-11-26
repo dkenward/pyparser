@@ -3,7 +3,9 @@ Classes and methods necessary to input and output data from a MongoDB database.
 
 """
 from pymongo import MongoClient
-
+from pymongo.errors import ServerSelectionTimeoutError
+from bson.json_util import dumps
+from bson.BSON import encode
 
 class mongo_manager():
     '''
@@ -61,7 +63,16 @@ class mongo_manager():
         else:
             conn = MongoClient(host, port)
     
-        return conn[db_name]
+            #set db settings?
+            
+            # Check for active connection
+            try:
+                if conn.server_info():
+                    self.is_connected=True
+            except ServerSelectionTimeoutError as e:
+                print(e)  
+                          
+        self.db = conn[db_name]
     
     
 
@@ -83,9 +94,14 @@ class mongo_manager():
         
         """    
         if self.is_connected:
-            #TODO: complete function
-            if extension is "bson":
-                pass
-            elif extension is "json":
-                pass
+            
+            if extension in ["bson","json"] :
+                json={}
+                for coll in self.db.list_collection_names():
+                    json[coll.name()] = dumps(coll.find()) # dumps creates a json string from the query
+                    
+                if extension is "bson":
+                    return encode(json)
+                else:
+                    return json
             pass

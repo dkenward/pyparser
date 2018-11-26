@@ -1,5 +1,5 @@
 '''
 import api level modules
 '''
-from .aintervals import Interval
-from .mydataframe import MyDataFrame
+from mylib.core.aintervals import Interval
+from mylib.core.mydataframe import MyDataFrame

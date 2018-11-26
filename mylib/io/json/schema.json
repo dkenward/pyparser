@@ -13,12 +13,7 @@
                      "special_function":{"type":"string"}},
                 "date": { "type": "string",
                           "format":"date-time"
-                        }
-
-                
-                
-                
-
+                }   
             }
         },
         "data": {
@@ -41,9 +36,7 @@
                 "start": {"type":"string", "format":"date-time"},
                 "data":{
                     "type":"array",
-                    "items":{
-                        "type":"number"
-                    }
+                    "items":{"type":"integer"}
                 }
 
             }
@@ -54,10 +47,33 @@
             "properties": {
                 "source_id":{"type":"integer"},
                 "date-time":{"type":"string","format":"date-time"},
-                "trigger":{"type":"object"}
-                "trigger_func:"
+                "trigger":{"type":"object"},
+                "trigger_func":{"type":"string"}
+            }
+        },
+        "Intervals" : {
+            "title":"intervals",
+            "type":"object",
+            "properties":{
+                "intervals":{
+                    "type":"array", 
+                    "items":{"$ref":"definitions/interval"}
+                }
+                        
+            }
+        },
+        "Interval": {
+            "title": "interval",
+            "type": "object",
+            "properties": {
+                "seq_num":{"type":"integer"},
+                "start":{"type":"string","format":"date-time"},
+                "stop": {"type":"string","format":"date-time"},
+                
+                
             }
         }
+            
 
 
     }
