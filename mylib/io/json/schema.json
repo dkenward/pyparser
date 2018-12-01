@@ -68,7 +68,7 @@
             "properties": {
                 "seq_num":{"type":"integer"},
                 "start":{"type":"string","format":"date-time"},
-                "stop": {"type":"string","format":"date-time"},
+                "stop": {"type":"string","format":"date-time"}
                 
                 
             }

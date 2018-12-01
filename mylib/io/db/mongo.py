@@ -76,7 +76,7 @@ class mongo_manager():
     
     
 
-    def export(self,extension="bson"):
+    def export(self,what='db',extension="bson"):
         """    
         Export the database in a given format bson, or json
         
@@ -84,6 +84,8 @@ class mongo_manager():
         
         Parameters
         ----------
+        what: string
+            What should exported. 'db'  for the entire database or 'colllection name' for a single collection.
         extension: string
             Data type for export. Valid types include "json" and "bson"
             
@@ -95,13 +97,23 @@ class mongo_manager():
         """    
         if self.is_connected:
             
-            if extension in ["bson","json"] :
+            if extension in ["bson","json",'csv','excel'] :
                 json={}
-                for coll in self.db.list_collection_names():
-                    json[coll.name()] = dumps(coll.find()) # dumps creates a json string from the query
+                if what == 'db':
+                    colls = self.db.list_database_names()
+                else:
+                    colls = what
+                for coll in colls:
+                    json[coll] = dumps(self.db.get_collection(coll).find()) # dumps creates a json string from the query
                     
                 if extension is "bson":
                     return encode(json)
-                else:
-                    return json
-            pass
+                elif extension in ["csv","excel"]:
+                    import flatten_json #may not work as desired
+                    flat_json = flatten_json.flatten(json)   
+                    #create buffered string
+                    #title=generate header
+                    #cw = csv.DictWriter(f,title,delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL) 
+                    #cw.writeheader()
+                    #cw.writerows(flat_json)
+                #for coll in self.
