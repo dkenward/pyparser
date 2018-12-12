@@ -5,7 +5,7 @@ Classes and methods necessary to input and output data from a MongoDB database.
 from pymongo import MongoClient
 from pymongo.errors import ServerSelectionTimeoutError
 from bson.json_util import dumps
-from bson.BSON import encode
+#from bson.BSON import encode
 
 class mongo_manager():
     '''
@@ -73,9 +73,21 @@ class mongo_manager():
                 print(e)  
                           
         self.db = conn[db_name]
-    
+        return self.db
     
 
+    def create_collection(self,name,schema=None):
+        """
+        Create a new collection with the defined schema
+        
+        Parameters
+        ----------
+        
+        Returns
+        -------
+        Collection
+        
+        """
     def export(self,what='db',extension="bson"):
         """    
         Export the database in a given format bson, or json
@@ -107,7 +119,8 @@ class mongo_manager():
                     json[coll] = dumps(self.db.get_collection(coll).find()) # dumps creates a json string from the query
                     
                 if extension is "bson":
-                    return encode(json)
+                    #return encode(json)
+                    pass
                 elif extension in ["csv","excel"]:
                     import flatten_json #may not work as desired
                     flat_json = flatten_json.flatten(json)   
